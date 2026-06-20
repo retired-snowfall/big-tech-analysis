@@ -1,67 +1,117 @@
-# Big Tech Stock Analysis
+# Big Tech Stock Analysis (2015–2026)
 
-## Project Overview
+## Overview
 
-This project analyzes the performance of major U.S. technology companies using historical stock market data from 2015 onward.
+This project analyzes historical stock performance of major U.S. technology companies and compares them using key financial metrics:
 
-The analysis focuses on:
+- Total return
+- Volatility (risk)
+- Risk-adjusted efficiency (Return / Volatility)
 
-* Total return
-* Daily returns
-* Volatility (risk)
-* Return-to-risk ratio
+The objective is to evaluate which companies provided the best balance between return and risk over the selected time period.
 
-## Companies Analyzed
+---
 
-* Apple (AAPL)
-* Microsoft (MSFT)
-* Amazon (AMZN)
-* AMD (AMD)
-* Broadcom (AVGO)
-* Adobe (ADBE)
+## Dataset
 
-## Technologies Used
+The dataset contains daily historical stock prices for the following companies:
 
-* Python
-* Pandas
-* NumPy
-* Matplotlib
+- Apple (AAPL)
+- Microsoft (MSFT)
+- Amazon (AMZN)
+- AMD (AMD)
+- Broadcom (AVGO)
+- Adobe (ADBE)
+
+Source: Yahoo Finance (Kaggle dataset)
+
+---
 
 ## Methodology
 
-1. Load historical stock data from CSV files.
-2. Convert dates to UTC.
-3. Filter observations from 2015 onward.
-4. Calculate daily returns using percentage change.
-5. Calculate:
+1. Load and merge multiple CSV files.
+2. Convert date columns to datetime format (UTC).
+3. Filter data starting from 2015.
+4. Compute daily returns using percentage change.
+5. Calculate the following metrics:
+   - Total return
+   - Volatility (standard deviation of returns)
+   - Risk-adjusted efficiency (Return / Volatility)
+6. Generate visualizations of results.
 
-   * Total return
-   * Volatility
-   * Return/Risk ratio
-6. Visualize results.
+---
 
-## Key Findings
+## Results
 
-* AMD delivered the highest total return during the analyzed period.
-* Microsoft showed the lowest volatility among the selected companies.
-* AMD achieved the strongest return-to-risk ratio.
-* Adobe had the weakest return-to-risk performance among the selected stocks.
+### Risk-Adjusted Ranking (Return / Volatility)
 
-## Example Output
+| Rank | Ticker | Score |
+|------|--------|-------|
+| 1 | AMD  | 928 |
+| 2 | AVGO | 419 |
+| 3 | MSFT | 392 |
+| 4 | AMZN | 355 |
+| 5 | AAPL | 332 |
+| 6 | ADBE | 296 |
 
-| Ticker | Total Return (%) | Volatility (%) | Return/Risk |
-| ------ | ---------------: | -------------: | ----------: |
-| AMD    |          3518.35 |           3.79 |      927.88 |
-| AVGO   |           927.98 |           2.22 |      418.56 |
-| MSFT   |           691.99 |           1.77 |      391.81 |
-| AMZN   |           747.01 |           2.10 |      355.31 |
-| AAPL   |           614.79 |           1.85 |      332.44 |
-| ADBE   |           613.89 |           2.07 |      296.08 |
+---
 
-## Future Improvements
+## Observations
 
-* Sharpe Ratio
-* Maximum Drawdown
-* Sector comparison
-* Portfolio simulation
-* Interactive dashboards
+- AMD achieved the highest total return but also exhibited the highest volatility.
+- Microsoft showed the most balanced risk-return profile.
+- Amazon and Apple demonstrated consistent performance with moderate efficiency.
+- Adobe had the lowest risk-adjusted performance in this sample.
+
+---
+
+## Visualizations
+
+### Total Return Comparison
+
+![Total Return](outputs/return_chart.png)
+
+### Risk vs Return
+
+![Risk vs Return](outputs/risk_return_chart.png)
+
+---
+
+## Metrics Definition
+
+- **Total Return (%)**: Overall percentage growth from 2015 to 2026.
+- **Volatility (%)**: Standard deviation of daily returns.
+- **Return / Volatility**: Custom efficiency metric measuring return per unit of risk.
+
+---
+
+## Project Structure
+
+big-tech-analysis/
+├── data/
+├── outputs/
+│ ├── return_chart.png
+│ ├── risk_return_chart.png
+│ └── summary.csv
+├── src/
+│ ├── load_data.py
+│ ├── metrics.py
+│ ├── visualization.py
+│ └── main.py
+├── README.md
+├── requirements.txt
+└── .gitignore
+
+
+
+
+---
+
+## How to Run
+
+```bash
+git clone https://github.com/your-username/big-tech-analysis.git
+cd big-tech-analysis
+
+pip install -r requirements.txt
+python src/main.py
