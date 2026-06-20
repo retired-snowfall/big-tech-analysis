@@ -83,25 +83,6 @@ Source: Yahoo Finance (Kaggle dataset)
 - **Volatility (%)**: Standard deviation of daily returns.
 - **Return / Volatility**: Custom efficiency metric measuring return per unit of risk.
 
----
-
-## Project Structure
-
-big-tech-analysis/
-├── data/                      # Исходные данные
-├── outputs/                   # Результаты анализа
-│   ├── return_chart.png       # График доходности
-│   ├── risk_return_chart.png  # График риск/доходность
-│   └── summary.csv            # Сводная таблица метрик
-├── src/                       # Исходный код
-│   ├── load_data.py           # Загрузка и подготовка данных
-│   ├── metrics.py             # Расчёт финансовых метрик
-│   ├── visualization.py       # Построение графиков
-│   └── main.py                # Точка входа
-├── README.md
-├── requirements.txt
-└── .gitignore
-
 
 ---
 
