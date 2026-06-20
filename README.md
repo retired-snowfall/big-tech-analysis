@@ -85,19 +85,26 @@ Source: Yahoo Finance (Kaggle dataset)
 
 ---
 
-## Project Structure
-
 big-tech-analysis/
 ├── data/
+│   ├── AAPL.csv
+│   ├── ADBE.csv
+│   ├── AMD.csv
+│   ├── AMZN.csv
+│   ├── AVGO.csv
+│   └── MSFT.csv
+│
 ├── outputs/
-│ ├── return_chart.png
-│ ├── risk_return_chart.png
-│ └── summary.csv
+│   ├── return_chart.png
+│   ├── risk_return_chart.png
+│   └── summary.csv
+│
 ├── src/
-│ ├── load_data.py
-│ ├── metrics.py
-│ ├── visualization.py
-│ └── main.py
+│   ├── load_data.py
+│   ├── metrics.py
+│   ├── visualization.py
+│   └── main.py
+│
 ├── README.md
 ├── requirements.txt
 └── .gitignore
