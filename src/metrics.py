@@ -51,3 +51,10 @@ def calculate_summary(stocks):
         "Return/Risk",
         ascending=False
     )
+
+def calculate_sharpe_ratio(stocks):
+    grouped = stocks.groupby("Ticker")["Return"]
+
+    sharpe = grouped.mean() / grouped.std()
+
+    return sharpe.sort_values(ascending=False)
