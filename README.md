@@ -1,20 +1,16 @@
-# Big Tech Stock Analysis (2015–2026)
+# Big Tech Stock Analysis
 
 ## Overview
 
-This project analyzes historical stock performance of major U.S. technology companies and compares them using key financial metrics:
+This project analyzes the historical performance of major U.S. technology companies using daily stock market data from Yahoo Finance.
 
-- Total return
-- Volatility (risk)
-- Risk-adjusted efficiency (Return / Volatility)
+The analysis focuses on comparing return, risk, and risk-adjusted performance between companies over the period from 2015 onward.
 
-The objective is to evaluate which companies provided the best balance between return and risk over the selected time period.
+The project was built to practice data analysis workflows, including data cleaning, feature engineering, financial metrics calculation, and data visualization.
 
 ---
 
-## Dataset
-
-The dataset contains daily historical stock prices for the following companies:
+## Companies Analyzed
 
 - Apple (AAPL)
 - Microsoft (MSFT)
@@ -23,45 +19,75 @@ The dataset contains daily historical stock prices for the following companies:
 - Broadcom (AVGO)
 - Adobe (ADBE)
 
-Source: Yahoo Finance (Kaggle dataset)
+---
+
+## Dataset
+
+Historical daily stock prices obtained from Yahoo Finance.
+
+Each company is stored as a separate CSV file containing:
+
+- Date
+- Open
+- High
+- Low
+- Close
+- Volume
+- Dividends
+- Stock Splits
 
 ---
 
-## Methodology
+## Analysis Pipeline
 
-1. Load and merge multiple CSV files.
-2. Convert date columns to datetime format (UTC).
-3. Filter data starting from 2015.
-4. Compute daily returns using percentage change.
-5. Calculate the following metrics:
-   - Total return
-   - Volatility (standard deviation of returns)
-   - Risk-adjusted efficiency (Return / Volatility)
-6. Generate visualizations of results.
+1. Load stock data from multiple CSV files.
+2. Merge datasets into a single DataFrame.
+3. Convert dates to UTC datetime format.
+4. Filter observations from 2015 onward.
+5. Calculate daily returns.
+6. Compute performance metrics.
+7. Generate visualizations.
+8. Export results to CSV.
+
+---
+
+## Metrics
+
+### Total Return
+
+Measures overall growth during the analysis period.
+
+Total Return = (Final Price − Initial Price) / Initial Price
+
+### Volatility
+
+Standard deviation of daily returns.
+
+Used as a measure of risk.
+
+### Sharpe Ratio
+
+Measures risk-adjusted performance.
+
+Sharpe Ratio = Mean Daily Return / Standard Deviation of Returns
+
+Higher values indicate better return per unit of risk.
 
 ---
 
 ## Results
 
-### Risk-Adjusted Ranking (Return / Volatility)
+The project generates a summary table containing:
 
-| Rank | Ticker | Score |
-|------|--------|-------|
-| 1 | AMD  | 928 |
-| 2 | AVGO | 419 |
-| 3 | MSFT | 392 |
-| 4 | AMZN | 355 |
-| 5 | AAPL | 332 |
-| 6 | ADBE | 296 |
+| Ticker | Total Return (%) | Volatility (%) | Sharpe Ratio |
+|----------|----------|----------|----------|
+| ... | ... | ... | ... |
 
----
+Results are exported automatically to:
 
-## Observations
-
-- AMD achieved the highest total return but also exhibited the highest volatility.
-- Microsoft showed the most balanced risk-return profile.
-- Amazon and Apple demonstrated consistent performance with moderate efficiency.
-- Adobe had the lowest risk-adjusted performance in this sample.
+```text
+outputs/summary.csv
+```
 
 ---
 
@@ -75,22 +101,76 @@ Source: Yahoo Finance (Kaggle dataset)
 
 ![Risk vs Return](outputs/risk_return_chart.png)
 
----
-
-## Metrics Definition
-
-- **Total Return (%)**: Overall percentage growth from 2015 to 2026.
-- **Volatility (%)**: Standard deviation of daily returns.
-- **Return / Volatility**: Custom efficiency metric measuring return per unit of risk.
-
+The charts are generated automatically and saved to the `outputs` directory.
 
 ---
 
-## How to Run
+## Project Structure
+
+```text
+big-tech-analysis/
+├── data/
+│   ├── AAPL.csv
+│   ├── ADBE.csv
+│   ├── AMD.csv
+│   ├── AMZN.csv
+│   ├── AVGO.csv
+│   └── MSFT.csv
+│
+├── outputs/
+│   ├── return_chart.png
+│   ├── risk_return_chart.png
+│   └── summary.csv
+│
+├── src/
+│   ├── load_data.py
+│   ├── metrics.py
+│   ├── visualization.py
+│   └── main.py
+│
+├── README.md
+├── requirements.txt
+└── .gitignore
+```
+
+---
+
+## Installation
+
+Clone the repository:
 
 ```bash
-git clone https://github.com/your-username/big-tech-analysis.git
+git clone https://github.com/retired-snowfall/big-tech-analysis.git
 cd big-tech-analysis
+```
 
+Install dependencies:
+
+```bash
 pip install -r requirements.txt
+```
+
+Run the analysis:
+
+```bash
 python src/main.py
+```
+
+---
+
+## Technologies
+
+- Python
+- Pandas
+- NumPy
+- Matplotlib
+
+---
+
+## Future Improvements
+
+- Maximum Drawdown analysis
+- Correlation analysis between stocks
+- Portfolio simulation
+- Interactive dashboard using Streamlit
+- Support for larger stock universes
