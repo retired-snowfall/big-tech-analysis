@@ -37,24 +37,21 @@ def calculate_summary(stocks):
         * 100
     )
 
-    summary = pd.DataFrame({
-        "Total Return (%)": total_return,
-        "Volatility (%)": volatility
-    })
-
-    summary["Return/Risk"] = (
-        summary["Total Return (%)"]
-        / summary["Volatility (%)"]
-    )
-
-    return summary.sort_values(
-        "Return/Risk",
-        ascending=False
-    )
-
-def calculate_sharpe_ratio(stocks):
     grouped = stocks.groupby("Ticker")["Return"]
 
-    sharpe = grouped.mean() / grouped.std()
+    sharpe_ratio = (
+        grouped.mean()
+        /
+        grouped.std()
+    )
 
-    return sharpe.sort_values(ascending=False)
+    summary = pd.DataFrame({
+        "Total Return (%)": total_return,
+        "Volatility (%)": volatility,
+        "Sharpe Ratio": sharpe_ratio
+    })
+
+    return summary.sort_values(
+        "Sharpe Ratio",
+        ascending=False
+    )
