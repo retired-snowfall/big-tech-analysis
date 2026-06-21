@@ -46,7 +46,7 @@ def main():
     )
 
     print("\nSummary:\n")
-    print(summary)
+    print(summary.round(4))
 
     summary.to_csv(
         OUTPUTS_DIR / "summary.csv"
