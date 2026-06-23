@@ -133,31 +133,6 @@ big-tech-analysis/
 └── .gitignore
 ```
 
----
-
-## Installation
-
-Clone the repository:
-
-```bash
-git clone https://github.com/retired-snowfall/big-tech-analysis.git
-cd big-tech-analysis
-```
-
-Install dependencies:
-
-```bash
-pip install -r requirements.txt
-```
-
-Run the analysis:
-
-```bash
-python src/main.py
-```
-
----
-
 ## Technologies
 
 - Python
@@ -167,10 +142,3 @@ python src/main.py
 
 ---
 
-## Future Improvements
-
-- Maximum Drawdown analysis
-- Correlation analysis between stocks
-- Portfolio simulation
-- Interactive dashboard using Streamlit
-- Support for larger stock universes
