@@ -84,13 +84,18 @@ Higher values indicate better return per unit of risk.
 
 ## Results
 
-The project generates a summary table containing:
+Summary table for the 2015–2023 period, sorted by Sharpe Ratio:
 
 | Ticker | Total Return (%) | Volatility (%) | Sharpe Ratio |
-| ------ | ----------------- | --------------- | ------------- |
-| ...    | ...                | ...              | ...            |
+| ------ | ----------------: | ---------------: | -------------: |
+| AMD    | 3518.35            | 3.79              | 0.9456          |
+| MSFT   | 691.99             | 1.77              | 0.9168          |
+| AVGO   | 927.98             | 2.22              | 0.8805          |
+| AAPL   | 614.79             | 1.85              | 0.8485          |
+| AMZN   | 747.01             | 2.10              | 0.8416          |
+| ADBE   | 613.89             | 2.07              | 0.7907          |
 
-Results are exported automatically to:
+Full results are exported automatically to:
 
 ```
 outputs/summary.csv
@@ -128,11 +133,12 @@ Charts are generated automatically and saved to the `outputs` directory. Chart t
 
 ## Interpretation
 
-A few observations that typically hold for this dataset (exact figures depend on the date range the data was pulled for):
-
-- Semiconductor and cloud-infrastructure names (e.g. AMD, AVGO) tend to show higher volatility alongside higher total returns — consistent with their exposure to cyclical hardware demand and AI/data-center growth.
-- Large, diversified platforms (e.g. AAPL, MSFT) tend to show comparatively lower volatility, which can translate into a competitive Sharpe Ratio even without leading in raw total return.
-- The risk-vs-return scatter plot is a quick way to see which companies delivered strong returns *relative to* the risk taken, rather than just the highest raw return.
+- **AMD delivered by far the highest total return (3518%)** over the period, alongside the highest volatility (3.79%) of the group — consistent with its exposure to cyclical semiconductor demand and, more recently, AI/data-center growth.
+- **Despite the elevated risk, AMD also had the highest Sharpe Ratio (0.95)**, meaning its outsized returns more than compensated for the extra volatility — the risk was, in hindsight, well rewarded.
+- **MSFT stands out on the other end**: the lowest volatility in the group (1.77%) combined with solid, steady returns gives it the second-highest Sharpe Ratio (0.92) — a case of consistency competing effectively with raw growth.
+- **AVGO posted the second-highest total return (928%)** with moderate volatility, landing in the middle of the risk-adjusted ranking.
+- **AAPL, AMZN, and ADBE cluster closely together** on both return and volatility, with Sharpe Ratios in a narrow 0.79–0.85 band — none of them stands out sharply from the others on a risk-adjusted basis.
+- Overall, the risk-vs-return scatter plot makes the trade-off visible at a glance: AMD sits far out on both axes, while the rest of the group occupies a much tighter, lower-risk region.
 
 ---
 
