@@ -28,7 +28,6 @@ def calculate_summary(stocks, risk_free_annual=RISK_FREE_RATE_ANNUAL):
     daily_std = grouped.std()
     volatility = daily_std * 100
 
-    # аннуализация: 252 торговых дня в году
     risk_free_daily = risk_free_annual / 252
     excess_daily_return = grouped.mean() - risk_free_daily
 
